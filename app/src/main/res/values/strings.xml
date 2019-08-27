@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AlertCold</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="nombre_del_sensor">Nombre del Sensor</string>
+
+    <string name="navigation_drawer_open">Barra de Navegación Abierta</string>
+    <string name="navigation_drawer_close">Barra de Navegación Cerrada</string>
+</resources>

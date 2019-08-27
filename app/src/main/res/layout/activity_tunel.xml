@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/capafondo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".insertBash.view.TunelActivity">
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:alpha="0.5"
+        android:visibility="visible"
+
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="loco.json"
+        app:lottie_imageAssetsFolder="assets"
+        app:lottie_loop="true"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clIzquierda"
+        android:layout_width="32dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clDerecha"
+        android:layout_width="32dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/capaBlanca"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/clDerecha"
+        app:layout_constraintStart_toEndOf="@+id/clIzquierda"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/capafondoRV"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.8"
+        android:background="@drawable/shape_bg_tunel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/clDerecha"
+        app:layout_constraintStart_toEndOf="@+id/clIzquierda"
+        app:layout_constraintTop_toTopOf="@id/headerbotton">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/clDerecha"
+        app:layout_constraintStart_toEndOf="@+id/clIzquierda"
+        app:layout_constraintTop_toTopOf="@id/headerbotton">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieBgTunel"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="bg_tunel.json"
+            app:lottie_imageAssetsFolder="assets"
+            app:lottie_loop="true"
+            app:lottie_scale="0.1"
+            tools:ignore="MissingConstraints" />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieBgTune2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lottieBgTunel"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="bg_tunel.json"
+            app:lottie_imageAssetsFolder="assets"
+            app:lottie_loop="true"
+            app:lottie_scale="0.1"
+            tools:ignore="MissingConstraints" />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieBgTune3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lottieBgTune2"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="bg_tunel.json"
+            app:lottie_imageAssetsFolder="assets"
+            app:lottie_loop="true"
+            app:lottie_scale="0.1"
+            tools:ignore="MissingConstraints" />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieBgTune4"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lottieBgTune3"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="bg_tunel.json"
+            app:lottie_imageAssetsFolder="assets"
+            app:lottie_loop="true"
+            app:lottie_scale="0.1"
+            tools:ignore="MissingConstraints" />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieBgTune5"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lottieBgTune4"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="bg_tunel.json"
+            app:lottie_imageAssetsFolder="assets"
+            app:lottie_loop="true"
+            app:lottie_scale="0.1"
+            tools:ignore="MissingConstraints" />
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieBgTune6"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lottieBgTune5"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="bg_tunel.json"
+            app:lottie_imageAssetsFolder="assets"
+            app:lottie_loop="true"
+            app:lottie_scale="0.1"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rViewPallets"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@null"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:spanCount="2">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topeDerecho"
+        android:layout_width="12dp"
+        android:layout_height="match_parent"
+  android:background="@drawable/shape_shadow_line_vertical"
+      app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
+        app:layout_constraintStart_toEndOf="@+id/constraintLayout"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topeIzquierdo"
+        android:layout_width="12dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_shadow_line_vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/constraintLayout"
+        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/headerbotton"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="@drawable/shape_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/gear"
+        android:layout_width="52dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/headerbotton"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="gear2.json"
+        app:lottie_imageAssetsFolder="assets"
+        app:lottie_loop="true"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="411dp" />}
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fAButtonUpload"
+        style="@style/Widget.Design.FloatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:backgroundTint="@color/colorAccent"
+        app:rippleColor="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_cloud_upload_black_24dp"
+        app:tint="@color/white"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

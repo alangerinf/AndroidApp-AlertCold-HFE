@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
+    tools:context=".EditBasicBash">
+
+
+    <LinearLayout
+        android:id="@+id/editBatch_spinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/shape_btn_light"
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/editBatch_spnArea"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:entries="@array/areas"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/editBatch_spinner2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/shape_btn_light"
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editBatch_spinner"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/editBatch_spnZona"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:entries="@array/zonas"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/editBatch_spinner3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/shape_btn_light"
+
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editBatch_spinner2"
+        tools:ignore="MissingConstraints">
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/editBatch_spnProducto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:entries="@array/productos"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent" />
+    </LinearLayout>
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editBatch_eTextBatchName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Nombre del Batch"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editBatch_spinner3" />
+
+    <ibao.alanger.alertcoldhfe.adapters.GradientTextView
+        android:id="@+id/editBatch_textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Fecha de Inicio"
+        android:textStyle="bold"
+        android:textColor="#000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editBatch_eTextBatchName" />
+
+    <ibao.alanger.alertcoldhfe.adapters.GradientTextView
+        android:id="@+id/editBatch_textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Hora de Inicio"
+        android:textColor="#000"
+        android:textStyle="bold"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editBatch_textView3" />
+
+    <ibao.alanger.alertcoldhfe.adapters.GradientTextView
+        android:id="@+id/editBatch_textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Fecha Fin"
+        android:textColor="#000"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
+    <ibao.alanger.alertcoldhfe.adapters.GradientTextView
+        android:id="@+id/editBatch_textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Hora Fin"
+        android:textColor="#000"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editBatch_textView5" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/editBatch_tViewFechaInicio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="8dp"
+        android:text="Sin Editar"
+        android:focusableInTouchMode="true"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintEnd_toStartOf="@+id/editBatch_btnEditFechaInicio"
+        app:layout_constraintStart_toEndOf="@+id/editBatch_textView3"
+        app:layout_constraintTop_toTopOf="@+id/editBatch_textView3"
+         />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/editBatch_tViewHoraInicio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Sin Editar"
+        android:focusableInTouchMode="true"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintEnd_toStartOf="@+id/editBatch_btnEditHoraInicio"
+        app:layout_constraintStart_toStartOf="@+id/editBatch_tViewFechaInicio"
+        app:layout_constraintTop_toTopOf="@+id/editBatch_textView4" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/editBatch_tViewFechaFin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Sin Editar"
+        android:focusableInTouchMode="true"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintEnd_toStartOf="@+id/editBatch_btnEditFechaFin"
+        app:layout_constraintStart_toStartOf="@+id/editBatch_tViewHoraInicio"
+        app:layout_constraintTop_toTopOf="@+id/editBatch_textView5" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/editBatch_tViewHoraFin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Sin Editar"
+        android:focusableInTouchMode="true"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintEnd_toStartOf="@+id/editBatch_btnEditHoraFin"
+        app:layout_constraintStart_toStartOf="@+id/editBatch_tViewFechaFin"
+        app:layout_constraintTop_toTopOf="@+id/editBatch_textView6" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/editBatch_btnEditFechaInicio"
+        android:layout_width="93dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/colorPrimary"
+        android:text="Editar"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/editBatch_tViewFechaInicio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editBatch_tViewFechaInicio" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/editBatch_btnEditHoraInicio"
+        android:layout_width="93dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/colorPrimary"
+        android:text="Editar"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/editBatch_tViewHoraInicio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editBatch_tViewHoraInicio" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/editBatch_btnEditFechaFin"
+        android:layout_width="93dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/colorPrimary"
+        android:text="Editar"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/editBatch_tViewFechaFin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editBatch_tViewFechaFin" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/editBatch_btnEditHoraFin"
+        android:layout_width="93dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/colorPrimary"
+        android:text="Editar"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/editBatch_tViewHoraFin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/editBatch_tViewHoraFin" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/editBatch_btnOk"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorPrimary"
+        android:text="Siguiente"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editBatch_eTextNumPallets"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:ems="30"
+        android:inputType="numberDecimal"
+        android:textAlignment="center"
+        android:hint="Cantidad de Pallets"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editBatch_textView6" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editBatch_textView4" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="areas">
+        <item>Seleccione Área</item>
+        <item>Materia Prima 1</item>
+        <item>Materia Prima 2</item>
+    </string-array>
+    <string-array name="zonas">
+        <item>Seleccione Zona</item>
+        <item>Tunel PreFrio 01</item>
+        <item>Tunel PreFrio 02</item>
+    </string-array>
+    <string-array name="productos">
+        <item>Seleccione Producto</item>
+        <item>Producto 01</item>
+        <item>Producto 02</item>
+    </string-array>
+</resources>
