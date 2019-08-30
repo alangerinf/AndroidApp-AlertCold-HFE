@@ -12,11 +12,20 @@ public class Pallet implements Serializable {
     String cod;
     boolean isChecked;
     List<Sensor> sensorList;
+
+    Formato formato;
+    Variedad variedad;
+    int cantCajas;
+
+
     public Pallet(int pos) {
         this.sensorList = new ArrayList<>();
         this.cod= "";
         this.position=pos;
         this.isChecked=false;
+        formato=null;
+        variedad=null;
+        cantCajas=0;
     }
 
     public String toString(){
@@ -58,4 +67,36 @@ public class Pallet implements Serializable {
     }
 
 
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(boolean checked) {
+        isChecked = checked;
+    }
+
+
+    public Formato getFormato() {
+        return formato;
+    }
+
+    public void setFormato(Formato formato) {
+        this.formato = formato;
+    }
+
+    public Variedad getVariedad() {
+        return variedad;
+    }
+
+    public void setVariedad(Variedad variedad) {
+        this.variedad = variedad;
+    }
+
+    public int getCantCajas() {
+        return cantCajas;
+    }
+
+    public void setCantCajas(int cantCajas) {
+        this.cantCajas = cantCajas;
+    }
 }

@@ -50,6 +50,12 @@ public class RViewAdapterSensorToSearchPallet
         holder.spa_tViewTempEnd.setText(sensor.getTEMP_FIN()+" C°");
         holder.spa_tViewTimeStart.setText(sensor.getFECHA_INICIO());
         holder.spa_tViewTimeEnd.setText(sensor.getFECHA_FIN());
+
+        holder.spa_tViewFormato.setText(sensor.getFORMATO());
+        holder.spa_tViewVariedad.setText(sensor.getVARIEDAD());
+        holder.spa_tViewCantCajas.setText(sensor.getCANT_CAJAS());
+
+
     }
 
 
@@ -77,6 +83,11 @@ public class RViewAdapterSensorToSearchPallet
         AppCompatTextView spa_tViewTimeEnd;
 
 
+        AppCompatTextView spa_tViewFormato;
+        AppCompatTextView spa_tViewVariedad;
+        AppCompatTextView spa_tViewCantCajas;
+
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -92,6 +103,12 @@ public class RViewAdapterSensorToSearchPallet
             spa_tViewTempEnd= itemView.findViewById(R.id.spa_tViewTempEnd);
             spa_tViewTimeStart= itemView.findViewById(R.id.spa_tViewTimeStart);
             spa_tViewTimeEnd= itemView.findViewById(R.id.spa_tViewTimeEnd);
+
+            spa_tViewFormato = itemView.findViewById(R.id.spa_tViewFormato);
+            spa_tViewVariedad = itemView.findViewById(R.id.spa_tViewVariedad);
+            spa_tViewCantCajas = itemView.findViewById(R.id.spa_tViewCantCajas);
+
+
         }
     }
 }

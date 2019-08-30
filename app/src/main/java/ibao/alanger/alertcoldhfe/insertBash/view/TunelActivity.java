@@ -47,14 +47,21 @@ import ibao.alanger.alertcoldhfe.adapters.RViewAdapterPalletToBatch;
 import ibao.alanger.alertcoldhfe.app.AppController;
 import ibao.alanger.alertcoldhfe.editPallet.editPalletActivity;
 import ibao.alanger.alertcoldhfe.model.Batch;
+import ibao.alanger.alertcoldhfe.model.Formato;
 import ibao.alanger.alertcoldhfe.model.Pallet;
 import ibao.alanger.alertcoldhfe.model.Sensor;
 import ibao.alanger.alertcoldhfe.model.SharedPreferencesManager;
 import ibao.alanger.alertcoldhfe.model.User;
+import ibao.alanger.alertcoldhfe.model.Variedad;
 
 public class TunelActivity extends AppCompatActivity {
 
     ProgressDialog progressDialog;
+
+    private  static List<Variedad> variedadList;
+    private  static List<Formato>  formatoList;
+
+
     private  static List<Sensor> sensorListAll;
     private static List<Sensor> sensorListAcutal;
 
@@ -147,6 +154,10 @@ public class TunelActivity extends AppCompatActivity {
             bundleExtra.putInt("position",pos);
             bundleExtra.putSerializable("pallet",item);
             bundleExtra.putSerializable("sensorList", (Serializable) sensorListAcutal);
+
+
+            bundleExtra.putSerializable("formatoList",(Serializable) formatoList);
+            bundleExtra.putSerializable("variedadList",(Serializable) variedadList);
             i.putExtras(bundleExtra);
             startActivityForResult(i,REQUESTCODE_EDITPALLET, options.toBundle());
             /*handler.postDelayed(()->{
@@ -167,6 +178,7 @@ public class TunelActivity extends AppCompatActivity {
         JSONObject jsonObject = null;
         try {
             jsonObject = new JSONObject(BATCH.toString());
+            Log.d(TAG,"subiendo "+BATCH.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -205,7 +217,7 @@ public class TunelActivity extends AppCompatActivity {
                 Toast.makeText(ctx,error.toString(),Toast.LENGTH_LONG).show();
                 Log.d(TAG,error.toString());
                 progressDialog.dismiss();
-                finish();
+
             }
 
         }){
@@ -297,6 +309,8 @@ public class TunelActivity extends AppCompatActivity {
 
                                 progressDialog.dismiss();
                                 events();
+
+                                consultarVariedades(token);
                             }else {
                                 if(codigoRespuesta==ConectionConfig.HTTP_ERROR){
                                     Toast.makeText(ctx,"Área sin Sensores",Toast.LENGTH_LONG).show();
@@ -337,6 +351,145 @@ public class TunelActivity extends AppCompatActivity {
         AppController.getInstance().addToRequestQueue(jsonObjReq);
     }
 
+
+    void consultarVariedades(String token){
+
+        progressDialog.setTitle("Buscando Variedades");
+        progressDialog.show();
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
+                ConectionConfig.GET_VARIEDADES, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d(TAG, response.toString());
+                        try {
+                            int codigoRespuesta = response.getInt("codigoRespuesta");
+                            if(codigoRespuesta==ConectionConfig.HTTP_OK) {
+
+                                JSONObject datos = new JSONObject(String.valueOf(response.getJSONObject("datos")));
+                                JSONArray sensores = datos.getJSONArray("variedades");
+                                for(int i=0;i<sensores.length();i++){
+                                    Variedad temp = new Variedad();
+                                    JSONObject productTemp = sensores.getJSONObject(i);
+                                    temp.setId(productTemp.getString("ID"));
+                                    temp.setName(productTemp.getString("NOMBRE"));
+                                    variedadList.add(temp);
+                                }
+
+                                progressDialog.dismiss();
+                                events();
+
+                                consultarFormatos(token);
+
+                            }else {
+                                if(codigoRespuesta==ConectionConfig.HTTP_ERROR){
+                                    Toast.makeText(ctx,"Área sin Variedades",Toast.LENGTH_LONG).show();
+                                    onBackPressed();
+                                    progressDialog.dismiss();
+                                }
+                            }
+
+
+                        } catch (JSONException e) {
+                            Toast.makeText(ctx,"json"+e.toString(),Toast.LENGTH_LONG).show();
+
+                            Log.d(TAG,e.toString());
+                            e.printStackTrace();
+                            progressDialog.dismiss();
+                            onBackPressed();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(ctx,error.toString(),Toast.LENGTH_LONG).show();
+                Log.d(TAG,error.toString());
+                error.printStackTrace();
+                progressDialog.dismiss();
+                onBackPressed();
+            }
+
+        }){
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String,String> headers = new HashMap<String, String>();
+                headers.put("Authorization",token);
+                return headers;
+            }
+
+        };
+        AppController.getInstance().addToRequestQueue(jsonObjReq);
+    }
+
+    void consultarFormatos(String token){
+
+        progressDialog.setTitle("Buscando Formatos");
+        progressDialog.show();
+        JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
+                ConectionConfig.POST_GETFORMATOS, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Log.d(TAG, response.toString());
+                        try {
+                            int codigoRespuesta = response.getInt("codigoRespuesta");
+                            if(codigoRespuesta==ConectionConfig.HTTP_OK) {
+
+                                JSONObject datos = new JSONObject(String.valueOf(response.getJSONObject("datos")));
+                                JSONArray formatos = datos.getJSONArray("formatos");
+                                for(int i=0;i<formatos.length();i++){
+                                    Formato temp = new Formato();
+                                    JSONObject productTemp = formatos.getJSONObject(i);
+                                    temp.setId(productTemp.getString("ID"));
+                                    temp.setName(productTemp.getString("NOMBRE"));
+                                    formatoList.add(temp);
+                                }
+
+                                progressDialog.dismiss();
+                                events();
+                            }else {
+                                if(codigoRespuesta==ConectionConfig.HTTP_ERROR){
+                                    Toast.makeText(ctx,"Área sin Variedades",Toast.LENGTH_LONG).show();
+                                    onBackPressed();
+                                    progressDialog.dismiss();
+                                }
+                            }
+
+
+                        } catch (JSONException e) {
+                            Toast.makeText(ctx,"json"+e.toString(),Toast.LENGTH_LONG).show();
+
+                            Log.d(TAG,e.toString());
+                            e.printStackTrace();
+                            progressDialog.dismiss();
+                            onBackPressed();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(ctx,error.toString(),Toast.LENGTH_LONG).show();
+                Log.d(TAG,error.toString());
+                error.printStackTrace();
+                progressDialog.dismiss();
+                onBackPressed();
+            }
+
+        }){
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String,String> headers = new HashMap<String, String>();
+                headers.put("Authorization",token);
+                return headers;
+            }
+
+        };
+        AppController.getInstance().addToRequestQueue(jsonObjReq);
+    }
+
+
     private void define() {
         ctx = this;
         progressDialog = new ProgressDialog(ctx);
@@ -345,6 +498,8 @@ public class TunelActivity extends AppCompatActivity {
         gear = findViewById(R.id.gear);
         rViewPallets = findViewById(R.id.rViewPallets);
         sensorListAll = new ArrayList<>();
+        variedadList = new ArrayList<>();
+        formatoList = new ArrayList<>();
         sensorListAcutal= new ArrayList<>();
 
     }
@@ -409,6 +564,9 @@ public class TunelActivity extends AppCompatActivity {
             Log.d(TAG,"data por remplazar"+pallet.toString());
             pallet.setCod(palletTemp.getCod());
             pallet.setSensorList(palletTemp.getSensorList());
+            pallet.setVariedad(palletTemp.getVariedad());
+            pallet.setFormato(palletTemp.getFormato());
+            pallet.setCantCajas(palletTemp.getCantCajas());
             /*
             //removiando los  sensores agregados
             Log.d(TAG,"tamaño previo sensores "+ sensorListAll.size());
@@ -452,6 +610,10 @@ public class TunelActivity extends AppCompatActivity {
                 bundleExtra.putInt("position",pos);
                 bundleExtra.putSerializable("pallet",item);
                 bundleExtra.putSerializable("sensorList", (Serializable) sensorListAcutal);
+
+                bundleExtra.putSerializable("formatoList",(Serializable) formatoList);
+                bundleExtra.putSerializable("variedadList",(Serializable) variedadList);
+
                 i.putExtras(bundleExtra);
                 startActivityForResult(i,REQUESTCODE_EDITPALLET, options.toBundle());
             /*handler.postDelayed(()->{

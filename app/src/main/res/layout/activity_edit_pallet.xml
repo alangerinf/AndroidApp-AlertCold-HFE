@@ -61,6 +61,102 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/eTextNumPallets23" />
 
+
+        <LinearLayout
+            android:id="@+id/selectores"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnQR"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+
+                <ibao.alanger.alertcoldhfe.adapters.GradientTextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+
+                    android:text="Formato"
+                    android:textColor="#000"
+                    android:textStyle="bold" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_btn_light">
+
+
+                    <Spinner
+                        android:id="@+id/spnFormato"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ibao.alanger.alertcoldhfe.adapters.GradientTextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Variedad"
+                    android:textColor="#000"
+                    android:textStyle="bold" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_btn_light">
+
+                    <Spinner
+                        android:id="@+id/spnVariedad"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:boxStrokeColor="@color/colorAccent"
+                android:textColorHint="@color/colorPrimary"
+                app:boxStrokeWidth="2dp"
+                android:hint="Cantidad Cajas">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tietCantCajas"
+                    android:textAlignment="center"
+                    android:inputType="number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </LinearLayout>
+
+
+
+
     <ibao.alanger.alertcoldhfe.adapters.GradientTextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
@@ -71,7 +167,7 @@
         android:textStyle="bold"
         android:textColor="#000"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnQR" />
+        app:layout_constraintTop_toBottomOf="@+id/selectores" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView_Sensors"
@@ -101,7 +197,7 @@
         android:layout_marginEnd="16dp"
         android:alpha="0.2"
         android:fontFamily="sans-serif-black"
-        android:text="10"
+        android:text="@string/_10"
         android:textAlignment="textEnd"
         android:textColor="@color/colorPrimary"
         android:textSize="60sp"

@@ -5,4 +5,5 @@
 
     <string name="navigation_drawer_open">Barra de Navegación Abierta</string>
     <string name="navigation_drawer_close">Barra de Navegación Cerrada</string>
+    <string name="_10">10</string>
 </resources>

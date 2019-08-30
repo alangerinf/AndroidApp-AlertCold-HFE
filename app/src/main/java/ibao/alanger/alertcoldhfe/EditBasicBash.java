@@ -196,9 +196,49 @@ public class EditBasicBash extends AppCompatActivity {
                                 Log.d(TAG,"f4");
                                     progressDialog.dismiss();
 
+
+                                String mensaje ="";
+
+                                if (productListAll.size() == 0 ) {
+                                    Toast.makeText(ctx, "Sin Productos", Toast.LENGTH_LONG).show();
+
+                                    mensaje = "Sin Productos";
+
+                                }
+                                if (zoneListAll.size() == 0 ) {
+                                    if(!mensaje.equals("")){
+                                        mensaje=mensaje+"\n";
+                                    }
+
+                                    mensaje=mensaje+"Sin Zonas";
+
+                                }
+                                if (areaListAll.size() == 0 ) {
+                                    if(!mensaje.equals("")){
+                                        mensaje=mensaje+"\n";
+                                    }
+                                    mensaje=mensaje+"Sin Areas";
+
+
+                                }
+
+
+                                if(productListAll.size()>0 && zoneListAll.size()>0 && areaListAll.size()>0){
                                     loadArea();
                                     loadProduct();
                                     events();
+
+                                }else {
+                                    Toast.makeText(ctx,mensaje,Toast.LENGTH_LONG).show();
+
+                                    onBackPressed();
+                                }
+
+
+
+
+
+
                             }else {
                                 if(codigoRespuesta==ConectionConfig.HTTP_ERROR){
                                     Toast.makeText(ctx,mensajeRespuesta,Toast.LENGTH_LONG).show();

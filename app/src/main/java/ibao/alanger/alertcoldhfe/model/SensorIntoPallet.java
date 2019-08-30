@@ -14,6 +14,11 @@ public class SensorIntoPallet {
     private String TEMP_INICIO;
     private String TEMP_FIN;
 
+
+    private String CANT_CAJAS;
+    private String FORMATO;
+    private String VARIEDAD;
+
     SensorIntoPallet(){
 
          SENSOR_ID="";
@@ -27,6 +32,10 @@ public class SensorIntoPallet {
          TEMP_MAX="";
          TEMP_INICIO="";
          TEMP_FIN="";
+
+        CANT_CAJAS ="";
+        FORMATO ="";
+        VARIEDAD ="";
 
     }
 
@@ -120,5 +129,27 @@ public class SensorIntoPallet {
     }
 
 
+    public String getCANT_CAJAS() {
+        return CANT_CAJAS;
+    }
 
+    public void setCANT_CAJAS(String CANT_CAJAS) {
+        this.CANT_CAJAS = CANT_CAJAS;
+    }
+
+    public String getFORMATO() {
+        return FORMATO;
+    }
+
+    public void setFORMATO(String FORMATO) {
+        this.FORMATO = FORMATO;
+    }
+
+    public String getVARIEDAD() {
+        return VARIEDAD;
+    }
+
+    public void setVARIEDAD(String VARIEDAD) {
+        this.VARIEDAD = VARIEDAD;
+    }
 }

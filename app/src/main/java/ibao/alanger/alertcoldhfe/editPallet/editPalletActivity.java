@@ -4,12 +4,15 @@ package ibao.alanger.alertcoldhfe.editPallet;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,8 +20,10 @@ import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.zxing.integration.android.IntentIntegrator;
 
+import java.io.Serializable;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -30,8 +35,10 @@ import ibao.alanger.alertcoldhfe.CustomScannerActivity;
 
 import ibao.alanger.alertcoldhfe.R;
 import ibao.alanger.alertcoldhfe.adapters.RViewAdapterSensorToPallet;
+import ibao.alanger.alertcoldhfe.model.Formato;
 import ibao.alanger.alertcoldhfe.model.Pallet;
 import ibao.alanger.alertcoldhfe.model.Sensor;
+import ibao.alanger.alertcoldhfe.model.Variedad;
 
 public class editPalletActivity extends Activity {
 
@@ -42,12 +49,23 @@ public class editPalletActivity extends Activity {
     AppCompatButton btnQR;
     List<Sensor> SENSORLISTALL;
 
+    Spinner spnVariedad;
+    Spinner spnFormato;
+
 
     RViewAdapterSensorToPallet adapter;
 
     RecyclerView rView;
 
     AlertDialog dialog;
+
+    List<Formato> formatoList;
+
+    List<Variedad> variedadList;
+
+    TextInputEditText tietCantCajas;
+
+    Context ctx;
 
 
     int REQUEST_QR_NPALLET=2134;
@@ -57,11 +75,20 @@ public class editPalletActivity extends Activity {
         setContentView(R.layout.activity_edit_pallet);
 
 
+        ctx = this;
+
         Bundle b = getIntent().getExtras();
         assert b != null;
         PALLET = (Pallet) b.getSerializable("pallet");
         assert PALLET != null;
-            SENSORLISTALL = (List<Sensor>) b.getSerializable("sensorList");
+        SENSORLISTALL = (List<Sensor>) b.getSerializable("sensorList");
+
+        formatoList = (List<Formato>) b.getSerializable("formatoList") ;
+
+        Log.d(TAG,"tam ->"+formatoList.size());
+        variedadList = (List<Variedad>) b.getSerializable("variedadList") ;
+
+
         Log.d(TAG,PALLET.toString());
         Log.d(TAG,"listando Sensores ***************");
         for(int i = 0; i< SENSORLISTALL.size(); i++){
@@ -73,6 +100,40 @@ public class editPalletActivity extends Activity {
         defineAtribs();
 
         events();
+
+        loadformato();
+        loadVariedades();
+
+
+        try {
+            for(int i=0;i<formatoList.size();i++){
+                if(PALLET.getFormato().getId().equals(formatoList.get(i).getId())){
+                    spnFormato.setSelection(i);
+                    break;
+                }
+            }
+        }catch (Exception e){
+            Log.d(TAG,"formato"+PALLET.getFormato());
+
+        }
+
+
+        try {
+            for(int i=0;i<variedadList.size();i++){
+                if(PALLET.getVariedad().getId()==variedadList.get(i).getId()){
+                    spnVariedad.setSelection(i);
+                }
+            }
+        }catch (Exception e){
+            Log.d(TAG,"formato"+PALLET.getFormato());
+
+        }
+
+
+        if(PALLET.getCantCajas()>0){
+            tietCantCajas.setText(""+PALLET.getCantCajas());
+        }
+
     }
 
     private void events() {
@@ -93,6 +154,9 @@ public class editPalletActivity extends Activity {
     }
 
     private void define() {
+        tietCantCajas = findViewById(R.id.tietCantCajas);
+        spnVariedad = findViewById(R.id.spnVariedad);
+        spnFormato = findViewById(R.id.spnFormato);
         rView = findViewById(R.id.recyclerView_Sensors);
         rView.setLayoutManager(new LinearLayoutManager(this));
         tViewNOrden = findViewById(R.id.tViewNOrden);
@@ -109,7 +173,19 @@ public class editPalletActivity extends Activity {
             if(eTextNumPallets.getText().toString().equals("")){
                 Toast.makeText(this, "Ingrese un # Pallet válido",Toast.LENGTH_SHORT).show();
             }else {
+
                 PALLET.setCod(eTextNumPallets.getText().toString());
+                Log.d(TAG,"posFormato "+spnFormato.getSelectedItemPosition());
+                PALLET.setFormato(formatoList.get(spnFormato.getSelectedItemPosition()));
+
+                Log.d(TAG,"posVariedad "+spnVariedad.getSelectedItemPosition());
+                PALLET.setVariedad(variedadList.get(spnVariedad.getSelectedItemPosition()));
+                try{
+                    PALLET.setCantCajas(Integer.valueOf(tietCantCajas.getText().toString()));
+                }catch (Exception e){
+                    Log.d(TAG, e.toString());
+                }
+
                 Intent i = new Intent();
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("pallet",PALLET);
@@ -179,5 +255,35 @@ public class editPalletActivity extends Activity {
         });
         dialog= myBuilder.create();
         dialog.show();
+    }
+
+
+    private void loadVariedades() {
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(ctx,R.layout.spinner_item,getArrayVariedad(variedadList));
+        spnVariedad.setAdapter(adapter);
+    }
+
+    private List<String> getArrayVariedad(List<Variedad> temp) {
+        List<String> list = new ArrayList<>();
+        for(Variedad a: temp){
+            list.add(a.getName());
+        }
+        return list;
+    }
+
+
+    private void loadformato() {
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(ctx,R.layout.spinner_item,getArrayFormato(formatoList));
+        spnFormato.setAdapter(adapter);
+    }
+
+    private List<String> getArrayFormato(List<Formato> temp) {
+        List<String> list = new ArrayList<>();
+        for(Formato a: temp){
+            list.add(a.getName());
+        }
+        return list;
     }
 }
