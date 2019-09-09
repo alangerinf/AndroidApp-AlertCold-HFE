@@ -56,7 +56,7 @@ import ibao.alanger.alertcoldhfe.model.Variedad;
 
 public class TunelActivity extends AppCompatActivity {
 
-    ProgressDialog progressDialog;
+    //ProgressDialog progressDialog;
 
     private  static List<Variedad> variedadList;
     private  static List<Formato>  formatoList;
@@ -92,7 +92,7 @@ public class TunelActivity extends AppCompatActivity {
         events();
         startAnimation();
         User user = SharedPreferencesManager.getUser(ctx);
-        progressDialog.show();
+      //  progressDialog.show();
         consultarSensores(user.getToken());
     }
 
@@ -170,9 +170,9 @@ public class TunelActivity extends AppCompatActivity {
 
 
     private void uploadBATCH(String token){
-        progressDialog.setTitle("Subiendo BATCH");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
+        //progressDialog.setTitle("Subiendo BATCH");
+        //progressDialog.setCancelable(false);
+        //progressDialog.show();
         Log.d(TAG,"entro en consulta");
 
         JSONObject jsonObject = null;
@@ -189,7 +189,7 @@ public class TunelActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         Log.d(TAG, response.toString());
-                        progressDialog.dismiss();
+                    //    progressDialog.dismiss();
                         try {
                             int codigoRespuesta = response.getInt("codigoRespuesta");
                             if(codigoRespuesta==ConectionConfig.HTTP_OK) {
@@ -216,7 +216,7 @@ public class TunelActivity extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(ctx,error.toString(),Toast.LENGTH_LONG).show();
                 Log.d(TAG,error.toString());
-                progressDialog.dismiss();
+          //      progressDialog.dismiss();
 
             }
 
@@ -272,9 +272,9 @@ public class TunelActivity extends AppCompatActivity {
     }
 
     private void consultarSensores(String token){
-        progressDialog.setCancelable(false);
-        progressDialog.setTitle("Buscando Sensores");
-        progressDialog.show();
+    //    progressDialog.setCancelable(false);
+    //    progressDialog.setTitle("Buscando Sensores");
+    //    progressDialog.show();
         Log.d(TAG,"entro en consulta");
 
         JSONObject jsonObject = new JSONObject();
@@ -307,7 +307,7 @@ public class TunelActivity extends AppCompatActivity {
                                     sensorListAcutal.add(sensor);
                                 }
 
-                                progressDialog.dismiss();
+                            //    progressDialog.dismiss();
                                 events();
 
                                 consultarVariedades(token);
@@ -315,7 +315,7 @@ public class TunelActivity extends AppCompatActivity {
                                 if(codigoRespuesta==ConectionConfig.HTTP_ERROR){
                                     Toast.makeText(ctx,"Área sin Sensores",Toast.LENGTH_LONG).show();
                                     onBackPressed();
-                                    progressDialog.dismiss();
+                            //        progressDialog.dismiss();
                                 }
                             }
 
@@ -324,7 +324,7 @@ public class TunelActivity extends AppCompatActivity {
 
                             Log.d(TAG,e.toString());
                             e.printStackTrace();
-                            progressDialog.dismiss();
+                            //progressDialog.dismiss();
                             onBackPressed();
                         }
                     }
@@ -334,7 +334,7 @@ public class TunelActivity extends AppCompatActivity {
                     Toast.makeText(ctx,error.toString(),Toast.LENGTH_LONG).show();
                     Log.d(TAG,error.toString());
                     error.printStackTrace();
-                    progressDialog.dismiss();
+                    //progressDialog.dismiss();
                     onBackPressed();
                 }
 
@@ -354,8 +354,8 @@ public class TunelActivity extends AppCompatActivity {
 
     void consultarVariedades(String token){
 
-        progressDialog.setTitle("Buscando Variedades");
-        progressDialog.show();
+        //progressDialog.setTitle("Buscando Variedades");
+        //progressDialog.show();
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
                 ConectionConfig.GET_VARIEDADES, null,
                 new Response.Listener<JSONObject>() {
@@ -376,7 +376,7 @@ public class TunelActivity extends AppCompatActivity {
                                     variedadList.add(temp);
                                 }
 
-                                progressDialog.dismiss();
+                                //progressDialog.dismiss();
                                 events();
 
                                 consultarFormatos(token);
@@ -385,7 +385,7 @@ public class TunelActivity extends AppCompatActivity {
                                 if(codigoRespuesta==ConectionConfig.HTTP_ERROR){
                                     Toast.makeText(ctx,"Área sin Variedades",Toast.LENGTH_LONG).show();
                                     onBackPressed();
-                                    progressDialog.dismiss();
+                                    //progressDialog.dismiss();
                                 }
                             }
 
@@ -395,7 +395,7 @@ public class TunelActivity extends AppCompatActivity {
 
                             Log.d(TAG,e.toString());
                             e.printStackTrace();
-                            progressDialog.dismiss();
+                            //progressDialog.dismiss();
                             onBackPressed();
                         }
                     }
@@ -405,7 +405,7 @@ public class TunelActivity extends AppCompatActivity {
                 Toast.makeText(ctx,error.toString(),Toast.LENGTH_LONG).show();
                 Log.d(TAG,error.toString());
                 error.printStackTrace();
-                progressDialog.dismiss();
+                //progressDialog.dismiss();
                 onBackPressed();
             }
 
@@ -424,8 +424,8 @@ public class TunelActivity extends AppCompatActivity {
 
     void consultarFormatos(String token){
 
-        progressDialog.setTitle("Buscando Formatos");
-        progressDialog.show();
+        //progressDialog.setTitle("Buscando Formatos");
+        //progressDialog.show();
         JsonObjectRequest jsonObjReq = new JsonObjectRequest(Request.Method.GET,
                 ConectionConfig.POST_GETFORMATOS, null,
                 new Response.Listener<JSONObject>() {
@@ -446,13 +446,13 @@ public class TunelActivity extends AppCompatActivity {
                                     formatoList.add(temp);
                                 }
 
-                                progressDialog.dismiss();
+                                //progressDialog.dismiss();
                                 events();
                             }else {
                                 if(codigoRespuesta==ConectionConfig.HTTP_ERROR){
                                     Toast.makeText(ctx,"Área sin Variedades",Toast.LENGTH_LONG).show();
                                     onBackPressed();
-                                    progressDialog.dismiss();
+                                  //  progressDialog.dismiss();
                                 }
                             }
 
@@ -462,7 +462,7 @@ public class TunelActivity extends AppCompatActivity {
 
                             Log.d(TAG,e.toString());
                             e.printStackTrace();
-                            progressDialog.dismiss();
+                            //progressDialog.dismiss();
                             onBackPressed();
                         }
                     }
@@ -472,7 +472,7 @@ public class TunelActivity extends AppCompatActivity {
                 Toast.makeText(ctx,error.toString(),Toast.LENGTH_LONG).show();
                 Log.d(TAG,error.toString());
                 error.printStackTrace();
-                progressDialog.dismiss();
+                //progressDialog.dismiss();
                 onBackPressed();
             }
 
@@ -492,7 +492,7 @@ public class TunelActivity extends AppCompatActivity {
 
     private void define() {
         ctx = this;
-        progressDialog = new ProgressDialog(ctx);
+        //progressDialog = new ProgressDialog(ctx);
 
         fAButtonUpload = findViewById(R.id.fAButtonUpload);
         gear = findViewById(R.id.gear);

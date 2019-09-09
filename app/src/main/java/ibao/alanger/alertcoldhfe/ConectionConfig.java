@@ -2,7 +2,6 @@ package ibao.alanger.alertcoldhfe;
 
 public class ConectionConfig {
 
-
     private static final String ROOT= "http://35.167.15.182/AlertColdHFEBerries/";
     public static final String POST_LOGIN=ROOT+"autenticacion/login";
     public static final String GET_GETBASICS =ROOT+"zonas";
