@@ -63,35 +63,35 @@ public class EditBasicBash extends AppCompatActivity {
     Context ctx;
     Dialog dialog;
     //botones de  editar
-        AppCompatButton btnEditFechaInicio;
-        AppCompatButton btnEditHoraInicio;
-        AppCompatButton btnEditFechaFin;
-        AppCompatButton btnEditHoraFin;
+    AppCompatButton btnEditFechaInicio;
+    AppCompatButton btnEditHoraInicio;
+    AppCompatButton btnEditFechaFin;
+    AppCompatButton btnEditHoraFin;
     //boton de ok
-        AppCompatButton btnOk;
+    AppCompatButton btnOk;
     //spinners
-        AppCompatSpinner spnArea;
-        AppCompatSpinner spnZona;
-        AppCompatSpinner spnProducto;
+    AppCompatSpinner spnArea;
+    AppCompatSpinner spnZona;
+    AppCompatSpinner spnProducto;
     //textViews
-        AppCompatTextView tViewFechaInicio;
-        AppCompatTextView tViewHoraInicio;
-        AppCompatTextView tViewFechaFin;
-        AppCompatTextView tViewHoraFin;
+    AppCompatTextView tViewFechaInicio;
+    AppCompatTextView tViewHoraInicio;
+    AppCompatTextView tViewFechaFin;
+    AppCompatTextView tViewHoraFin;
     //editText
-        AppCompatEditText eTextNumPallets;
-        AppCompatEditText eTextBatchName;
+    AppCompatEditText eTextNumPallets;
+    AppCompatEditText eTextBatchName;
 
 
-        List<Product> productListAll;
-        List<Area> areaListAll;
-        List<Zone> zoneListAll;
+    List<Product> productListAll;
+    List<Area> areaListAll;
+    List<Zone> zoneListAll;
 
 
 
     List<Product> productList;
-        List<Area> areaList;
-        List<Zone> zoneList;
+    List<Area> areaList;
+    List<Zone> zoneList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -100,7 +100,7 @@ public class EditBasicBash extends AppCompatActivity {
         setContentView(R.layout.activity_edit_basic_bash);
 
         define();
-       // events(); //comentado por error antes de la carga los envtos son cargados al consultar la data sino no cargan
+        // events(); //comentado por error antes de la carga los envtos son cargados al consultar la data sino no cargan
     }
 
 
@@ -120,24 +120,24 @@ public class EditBasicBash extends AppCompatActivity {
         zoneListAll    = new ArrayList<>();
 
         //botones de  editar
-            btnEditFechaInicio  = findViewById(R.id.editBatch_btnEditFechaInicio);
-            btnEditHoraInicio   = findViewById(R.id.editBatch_btnEditHoraInicio);
-            btnEditFechaFin     = findViewById(R.id.editBatch_btnEditFechaFin);
-            btnEditHoraFin      = findViewById(R.id.editBatch_btnEditHoraFin);
+        btnEditFechaInicio  = findViewById(R.id.editBatch_btnEditFechaInicio);
+        btnEditHoraInicio   = findViewById(R.id.editBatch_btnEditHoraInicio);
+        btnEditFechaFin     = findViewById(R.id.editBatch_btnEditFechaFin);
+        btnEditHoraFin      = findViewById(R.id.editBatch_btnEditHoraFin);
         //botones de  aceptar
-            btnOk   = findViewById(R.id.editBatch_btnOk);
+        btnOk   = findViewById(R.id.editBatch_btnOk);
         //spinner
-            spnArea     = findViewById(R.id.editBatch_spnArea);
-            spnZona     = findViewById(R.id.editBatch_spnZona);
-            spnProducto = findViewById(R.id.editBatch_spnProducto);
+        spnArea     = findViewById(R.id.editBatch_spnArea);
+        spnZona     = findViewById(R.id.editBatch_spnZona);
+        spnProducto = findViewById(R.id.editBatch_spnProducto);
         //eTexts
-            tViewFechaInicio    = findViewById(R.id.editBatch_tViewFechaInicio);
-            tViewHoraInicio     = findViewById(R.id.editBatch_tViewHoraInicio);
-            tViewFechaFin       = findViewById(R.id.editBatch_tViewFechaFin);
-            tViewHoraFin        = findViewById(R.id.editBatch_tViewHoraFin);
+        tViewFechaInicio    = findViewById(R.id.editBatch_tViewFechaInicio);
+        tViewHoraInicio     = findViewById(R.id.editBatch_tViewHoraInicio);
+        tViewFechaFin       = findViewById(R.id.editBatch_tViewFechaFin);
+        tViewHoraFin        = findViewById(R.id.editBatch_tViewHoraFin);
         //editText
-            eTextNumPallets     = findViewById(R.id.editBatch_eTextNumPallets);
-            eTextBatchName      = findViewById(R.id.editBatch_eTextBatchName);
+        eTextNumPallets     = findViewById(R.id.editBatch_eTextNumPallets);
+        eTextBatchName      = findViewById(R.id.editBatch_eTextBatchName);
 
         /***
          * Contectarse a la db para obtener todas als listas  de  un porrazo
@@ -163,38 +163,38 @@ public class EditBasicBash extends AppCompatActivity {
 
                                 JSONObject datos = new JSONObject(String.valueOf(response.getJSONObject("datos")));
                                 Log.d(TAG,"f1");
-                                    JSONArray areas = datos.getJSONArray("zonas");
-                                    JSONArray productos = datos.getJSONArray("productos");
+                                JSONArray areas = datos.getJSONArray("zonas");
+                                JSONArray productos = datos.getJSONArray("productos");
                                 Log.d(TAG,"f2");
-                                    for(int i=0;i<productos.length();i++){
-                                        Product product = new Product();
-                                        JSONObject productTemp = productos.getJSONObject(i);
-                                            product.setId(productTemp.getString("ID"));
-                                            product.setName(productTemp.getString("NOMBRE"));
-                                        productListAll.add(product);
-                                    }
+                                for(int i=0;i<productos.length();i++){
+                                    Product product = new Product();
+                                    JSONObject productTemp = productos.getJSONObject(i);
+                                    product.setId(productTemp.getString("ID"));
+                                    product.setName(productTemp.getString("NOMBRE"));
+                                    productListAll.add(product);
+                                }
                                 Log.d(TAG,"f3");
-                                    for(int i=0;i<areas.length();i++){
-                                        Area area = new Area();
-                                        JSONObject areaTemp = areas.getJSONObject(i);
-                                            area.setId(areaTemp.getString("ID"));
-                                            area.setName(areaTemp.getString("NOMBRE"));
-                                        JSONArray zonasListTemp = areaTemp.getJSONArray("SUB_ZONAS");
-                                        for(int j=0;j<zonasListTemp.length();j++){
-                                            Zone zone = new Zone();
-                                            JSONObject zonaTemp = zonasListTemp.getJSONObject(j);
-                                                zone.setId(zonaTemp.getString("ID"));
-                                                zone.setName(zonaTemp.getString("ID"));
-                                                zone.setIdArea(area.getId());
-                                            zoneListAll.add(zone);
-                                        }
-                                        if(zonasListTemp.length()>0){
-                                            areaListAll.add(area);
-                                        }
-
+                                for(int i=0;i<areas.length();i++){
+                                    Area area = new Area();
+                                    JSONObject areaTemp = areas.getJSONObject(i);
+                                    area.setId(areaTemp.getString("ID"));
+                                    area.setName(areaTemp.getString("NOMBRE"));
+                                    JSONArray zonasListTemp = areaTemp.getJSONArray("SUB_ZONAS");
+                                    for(int j=0;j<zonasListTemp.length();j++){
+                                        Zone zone = new Zone();
+                                        JSONObject zonaTemp = zonasListTemp.getJSONObject(j);
+                                        zone.setId(zonaTemp.getString("ID"));
+                                        zone.setName(zonaTemp.getString("ID"));
+                                        zone.setIdArea(area.getId());
+                                        zoneListAll.add(zone);
                                     }
+                                    if(zonasListTemp.length()>0){
+                                        areaListAll.add(area);
+                                    }
+
+                                }
                                 Log.d(TAG,"f4");
-                                    progressDialog.dismiss();
+                                progressDialog.dismiss();
 
 
                                 String mensaje ="";
@@ -257,16 +257,16 @@ public class EditBasicBash extends AppCompatActivity {
                         }
                     }
                 }, new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(ctx,error.toString(),Toast.LENGTH_LONG).show();
-                        Log.d(TAG,error.toString());
-                        error.printStackTrace();
-                        progressDialog.dismiss();
-                        onBackPressed();
-                    }
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(ctx,error.toString(),Toast.LENGTH_LONG).show();
+                Log.d(TAG,error.toString());
+                error.printStackTrace();
+                progressDialog.dismiss();
+                onBackPressed();
+            }
 
-                }){
+        }){
 
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
@@ -281,10 +281,10 @@ public class EditBasicBash extends AppCompatActivity {
     ProgressDialog progressDialog;
 
     private void loadAll() {
-            User user = SharedPreferencesManager.getUser(ctx);
+        User user = SharedPreferencesManager.getUser(ctx);
 
-            progressDialog.show();
-            consultBasics(user.getToken());
+        progressDialog.show();
+        consultBasics(user.getToken());
 
     }
 
@@ -309,7 +309,7 @@ public class EditBasicBash extends AppCompatActivity {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(ctx,R.layout.spinner_item,getArrayZone(zoneList));
         spnZona.setAdapter(adapter);
-       // loadProduct();
+        // loadProduct();
     }
 
     private void loadProduct() {
@@ -574,16 +574,16 @@ public class EditBasicBash extends AppCompatActivity {
         }
         if(
                 (
-                    (BATCH.getDateEnd()==null||BATCH.getDateEnd().isEmpty())
-                    &&
-                    (BATCH.getTimeEnd()==null||BATCH.getTimeEnd().isEmpty())
+                        (BATCH.getDateEnd()==null||BATCH.getDateEnd().isEmpty())
+                                &&
+                                (BATCH.getTimeEnd()==null||BATCH.getTimeEnd().isEmpty())
                 )
-                ||
-                (
-                !(BATCH.getDateEnd()==null||BATCH.getDateEnd().isEmpty())//lleno
-                &&
-                !(BATCH.getTimeEnd()==null||BATCH.getTimeEnd().isEmpty())//llenov
-                )
+                        ||
+                        (
+                                !(BATCH.getDateEnd()==null||BATCH.getDateEnd().isEmpty())//lleno
+                                        &&
+                                        !(BATCH.getTimeEnd()==null||BATCH.getTimeEnd().isEmpty())//llenov
+                        )
         ){
 
             //is ok
@@ -740,6 +740,9 @@ public class EditBasicBash extends AppCompatActivity {
 
                 timePicker.setHour(hour);
                 timePicker.setMinute(minute);
+            }else {
+                timePicker.setCurrentHour(hour);
+                timePicker.setCurrentMinute(minute);
             }
         }
 
@@ -751,6 +754,10 @@ public class EditBasicBash extends AppCompatActivity {
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
                 hourTemp = timePicker.getHour();
                 minuteTemp = timePicker.getMinute();
+            }else {
+                hourTemp = timePicker.getCurrentHour();
+                minuteTemp= timePicker.getCurrentMinute();
+
             }
 
 
