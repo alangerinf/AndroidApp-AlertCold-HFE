@@ -51,7 +51,8 @@
                     android:layout_marginStart="@dimen/left_twopoints"
                     android:text=":"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="@dimen/left_twopoints" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/spa_tViewNameBatch"
@@ -61,7 +62,8 @@
                     android:text="Nombre del Batch"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/spa_tView_tp_NameBatch"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginLeft="8dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -84,7 +86,8 @@
                     android:layout_marginStart="@dimen/left_twopoints"
                     android:text=":"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="@dimen/left_twopoints" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/spa_tViewTempMin"
@@ -96,7 +99,8 @@
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/spa_tView_tp_FFin"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginLeft="8dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -120,7 +124,8 @@
                     android:layout_marginStart="@dimen/left_twopoints"
                     android:text=":"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="@dimen/left_twopoints" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/spa_tViewTempMax"
@@ -132,7 +137,8 @@
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/spa_tView_tp_FInicio"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginLeft="8dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -157,7 +163,8 @@
                     android:layout_marginStart="@dimen/left_twopoints"
                     android:text=":"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="@dimen/left_twopoints" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/spa_tViewArea"
@@ -167,7 +174,8 @@
                     android:text="Nombre del Area"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/spa_tView_tp_Area"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginLeft="8dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -191,7 +199,8 @@
                     android:layout_marginStart="@dimen/left_twopoints"
                     android:text=":"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="@dimen/left_twopoints" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/spa_tViewZona"
@@ -201,7 +210,8 @@
                     android:text="Nombre de la Zona"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/spa_tView_tp_Zona"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginLeft="8dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -225,7 +235,8 @@
                     android:layout_marginStart="@dimen/left_twopoints"
                     android:text=":"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="@dimen/left_twopoints" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/spa_tViewSensor"
@@ -235,7 +246,8 @@
                     android:text="Nombre del Sensor"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/spa_tView_tp_Producto"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginLeft="8dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -260,7 +272,8 @@
                     android:layout_marginStart="@dimen/left_twopoints"
                     android:text=":"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="@dimen/left_twopoints" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/spa_tViewVariedad"
@@ -270,7 +283,8 @@
                     android:text="Nombre de Variedad"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/spa_tView_tp_Variedad"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginLeft="8dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -294,7 +308,8 @@
                     android:layout_marginStart="@dimen/left_twopoints"
                     android:text=":"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="@dimen/left_twopoints" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/spa_tViewFormato"
@@ -304,7 +319,8 @@
                     android:text="Nombre de Formato"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/spa_tView_tp_Formato"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginLeft="8dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -328,7 +344,8 @@
                     android:layout_marginStart="@dimen/left_twopoints"
                     android:text=":"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="@dimen/left_twopoints" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/spa_tViewCantCajas"
@@ -338,7 +355,8 @@
                     android:text="Cantidad de Cajas"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/spa_tView_tp_CantCajas"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginLeft="8dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -355,7 +373,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-            app:srcCompat="@drawable/ic_thermo" />
+            app:srcCompat="@drawable/ic_thermo"
+            android:layout_marginLeft="8dp" />
 
         <TextView
             android:id="@+id/spa_tViewTimeStart"
@@ -371,7 +390,9 @@
             app:layout_constraintEnd_toStartOf="@+id/imageView"
             app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spa_tViewTempStart" />
+            app:layout_constraintTop_toBottomOf="@+id/spa_tViewTempStart"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="8dp" />
 
         <TextView
             android:id="@+id/spa_tViewTimeEnd"

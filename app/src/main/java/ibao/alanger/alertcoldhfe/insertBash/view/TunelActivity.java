@@ -145,11 +145,14 @@ public class TunelActivity extends AppCompatActivity {
             Intent i = new Intent(this, editPalletActivity.class);
             View viewTemp = v;
             TextView tViewNOrden = v.findViewById(R.id.tViewNOrden);
-            ActivityOptions options = (ActivityOptions) ActivityOptions.makeSceneTransitionAnimation
-                    (this,
-                            Pair.create(viewTemp, viewTemp.getTransitionName()),
-                            Pair.create((View)tViewNOrden, tViewNOrden.getTransitionName())
-                    );
+            ActivityOptions options = null;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                options = (ActivityOptions) ActivityOptions.makeSceneTransitionAnimation
+                        (this,
+                                Pair.create(viewTemp, viewTemp.getTransitionName()),
+                                Pair.create((View)tViewNOrden, tViewNOrden.getTransitionName())
+                        );
+            }
             Bundle bundleExtra = new Bundle();
             bundleExtra.putInt("position",pos);
             bundleExtra.putSerializable("pallet",item);
@@ -159,7 +162,12 @@ public class TunelActivity extends AppCompatActivity {
             bundleExtra.putSerializable("formatoList",(Serializable) formatoList);
             bundleExtra.putSerializable("variedadList",(Serializable) variedadList);
             i.putExtras(bundleExtra);
-            startActivityForResult(i,REQUESTCODE_EDITPALLET, options.toBundle());
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                startActivityForResult(i,REQUESTCODE_EDITPALLET, options.toBundle());
+            }else {
+                startActivityForResult(i,REQUESTCODE_EDITPALLET);
+            }
+
             /*handler.postDelayed(()->{
                 adapter.setModeVerify(false);
                 adapter.notifyDataSetChanged();
@@ -601,11 +609,14 @@ public class TunelActivity extends AppCompatActivity {
                 Intent i = new Intent(this, editPalletActivity.class);
                 View viewTemp = v;
                 TextView tViewNOrden = v.findViewById(R.id.tViewNOrden);
-                ActivityOptions options = (ActivityOptions) ActivityOptions.makeSceneTransitionAnimation
-                        (this,
-                                Pair.create(viewTemp, viewTemp.getTransitionName()),
-                                Pair.create((View)tViewNOrden, tViewNOrden.getTransitionName())
-                        );
+                ActivityOptions options = null;
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                    options = (ActivityOptions) ActivityOptions.makeSceneTransitionAnimation
+                            (this,
+                                    Pair.create(viewTemp, viewTemp.getTransitionName()),
+                                    Pair.create((View)tViewNOrden, tViewNOrden.getTransitionName())
+                            );
+                }
                 Bundle bundleExtra = new Bundle();
                 bundleExtra.putInt("position",pos);
                 bundleExtra.putSerializable("pallet",item);
@@ -615,7 +626,11 @@ public class TunelActivity extends AppCompatActivity {
                 bundleExtra.putSerializable("variedadList",(Serializable) variedadList);
 
                 i.putExtras(bundleExtra);
-                startActivityForResult(i,REQUESTCODE_EDITPALLET, options.toBundle());
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                    startActivityForResult(i,REQUESTCODE_EDITPALLET, options.toBundle());
+                }else {
+                    startActivityForResult(i,REQUESTCODE_EDITPALLET);
+                }
             /*handler.postDelayed(()->{
                 adapter.setModeVerify(false);
                 adapter.notifyDataSetChanged();

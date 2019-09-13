@@ -62,7 +62,8 @@
         android:textColor="#000"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnQR" />
+        app:layout_constraintTop_toBottomOf="@+id/btnQR"
+        android:layout_marginLeft="16dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rView"

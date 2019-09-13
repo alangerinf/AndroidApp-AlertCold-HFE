@@ -48,7 +48,8 @@
                         android:layout_marginStart="@dimen/left_twopoints"
                         android:text=":"
                         android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent" />
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginLeft="@dimen/left_twopoints" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/bch_tViewNameBatch"
@@ -58,7 +59,8 @@
                         android:text="Nombre del Batch"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/bch_tView_tp_NameBatch"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginLeft="8dp" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -82,7 +84,8 @@
                         android:layout_marginStart="@dimen/left_twopoints"
                         android:text=":"
                         android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent" />
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginLeft="@dimen/left_twopoints" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/bch_tViewFInicio"
@@ -92,7 +95,8 @@
                         android:text="1992-09-21"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/bch_tView_tp_FInicio"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginLeft="8dp" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -116,7 +120,8 @@
                         android:layout_marginStart="@dimen/left_twopoints"
                         android:text=":"
                         android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent" />
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginLeft="@dimen/left_twopoints" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/bch_tViewFFin"
@@ -126,7 +131,8 @@
                         android:text="1992-09-21"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/bch_tView_tp_FFin"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginLeft="8dp" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -150,7 +156,8 @@
                         android:layout_marginStart="@dimen/left_twopoints"
                         android:text=":"
                         android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent" />
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginLeft="@dimen/left_twopoints" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/bch_tViewArea"
@@ -160,7 +167,8 @@
                         android:text="Nombre del Area"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/bch_tView_tp_Area"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginLeft="8dp" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -184,7 +192,8 @@
                         android:layout_marginStart="@dimen/left_twopoints"
                         android:text=":"
                         android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent" />
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginLeft="@dimen/left_twopoints" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/bch_tViewZona"
@@ -194,7 +203,8 @@
                         android:text="Nombre de la Zona"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/bch_tView_tp_Zona"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginLeft="8dp" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -218,7 +228,8 @@
                         android:layout_marginStart="@dimen/left_twopoints"
                         android:text=":"
                         android:textStyle="bold"
-                        app:layout_constraintStart_toStartOf="parent" />
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginLeft="@dimen/left_twopoints" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:id="@+id/bch_tViewProducto"
@@ -228,7 +239,8 @@
                         android:text="Nombre del Producto"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/bch_tView_tp_Producto"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginLeft="8dp" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

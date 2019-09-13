@@ -257,8 +257,9 @@
         app:rippleColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_cloud_upload_black_24dp"
+        android:src="@drawable/ic_cloud_upload_black_24dp"
         app:tint="@color/white"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:layout_marginRight="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

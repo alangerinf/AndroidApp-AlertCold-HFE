@@ -26,7 +26,7 @@ public class WebActivity extends AppCompatActivity {
 
     //private static final String dominio = "alertfarm.ibao.pe";
     //private static final String dominio = "alertfarmsf.ibao.pe";
-    private static final String dominio = "alertcoldhortifrut.ibao.pe";
+    private static final String dominio = "alertcoldhfeberries.ibao.pe";
 
     private static final String basePath = "http://"+dominio+"/";
 

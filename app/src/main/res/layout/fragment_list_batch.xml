@@ -110,7 +110,8 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:layout_marginLeft="16dp" />
 <!--
 
     <androidx.appcompat.widget.AppCompatButton
@@ -304,7 +305,8 @@
             android:background="@drawable/shape_green_button_right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginRight="4dp">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageView8"

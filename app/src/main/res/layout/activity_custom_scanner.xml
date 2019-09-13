@@ -26,10 +26,11 @@
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="@+id/zxing_barcode_scanner"
         app:layout_constraintEnd_toEndOf="@+id/zxing_barcode_scanner"
-        app:srcCompat="@drawable/ic_light_white_off"
+        android:src="@drawable/ic_light_white_off"
         app:backgroundTint="@color/colorPrimaryDark"
         app:tint="@color/white"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:layout_marginRight="16dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout6"

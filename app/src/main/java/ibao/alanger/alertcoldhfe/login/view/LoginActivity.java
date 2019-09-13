@@ -171,11 +171,22 @@ public class LoginActivity extends Activity implements LoginView{
         Intent intent = new Intent(getBaseContext(), ActivityMain.class);
 
         View viewTemp = findViewById(R.id.logo);
-        ActivityOptions options = (ActivityOptions) ActivityOptions.makeSceneTransitionAnimation
-                (this,
-                        Pair.create(viewTemp, viewTemp.getTransitionName())
-                );
-        startActivity(intent, options.toBundle());
+
+
+        ActivityOptions options = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            options = (ActivityOptions) ActivityOptions.makeSceneTransitionAnimation
+                    (this,
+                            Pair.create(viewTemp, viewTemp.getTransitionName())
+                    );
+        }
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+            startActivity(intent, options.toBundle());
+        }else {
+            startActivity(intent);
+        }
+
     }
 
     @Override
